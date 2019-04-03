@@ -112,13 +112,13 @@ try:
     from PyQt5.QtCore import (
         QCoreApplication, QEventLoop, QObject, QSocketNotifier, QTimer,
     )
-except ImportError as e0:
+except (ImportError, ModuleNotFoundError) as e0:
     try:
         # try PySide2
         from PySide2.QtCore import (
             Signal, QCoreApplication, QEventLoop, QObject, QSocketNotifier, QTimer,
         )
-    except ImportError as e1:
+    except (ImportError, ModuleNotFoundError) as e1:
         raise ImportError(
             "Neither PyQt5 nor PySide2 installed.\nPyQt5: {}\nPySide2: {})".format(e0, e1)
         )
